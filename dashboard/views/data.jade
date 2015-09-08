@@ -1,0 +1,11 @@
+ul
+  each book in books
+    script(type='text/javascript').
+      if ('#{book.attrs.source}' == 'web') {
+        myNewChart.segments[1].value += 1;
+      } else {
+        myNewChart.segments[0].value += 1;
+      }
+      myNewChart.update();
+    li(style='margin-bottom: 5px')
+      b #{book.attrs.type} #{book.attrs.user_id}  #{book.attrs.fdx_session_id} #{book.attrs.source} 

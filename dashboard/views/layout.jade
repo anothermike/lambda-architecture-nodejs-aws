@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='csrf-token', content=_csrf)
+    script(type='text/javascript')(src='//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js')
+    //script(type='text/javascript')(src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js')
+    script(type='text/javascript')(src='js/Chart.js')
+    //script(type='text/javascript')(src='js/angular-chart.js')
+    //link(rel='stylesheet', href='css/angular-chart.css')
+    title #{title} - Hackathon Starter
+    != css('main')
+  body
+    include partials/header
+
+    .container
+      include partials/flash
+      block content
+
+    script(type='text/javascript').
+      $(document).ready(function(){
+      setInterval(function() { $("#data").load("/currentdev"); }, 5000); });
+      			
+
+    include partials/footer
+
+    != js('application')
